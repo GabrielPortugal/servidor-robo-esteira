@@ -22,5 +22,7 @@ module.exports = class module{
 
     let topic = "Harold2019CtrlTvBtn";
     clientMqtt.publish(topic, body.code);
+
+    res.status(200).json({msg: "enviou para o Harold"});
   }
 }

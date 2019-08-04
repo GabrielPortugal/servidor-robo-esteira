@@ -38,11 +38,8 @@ global.clientMqtt  = mqtt.connect('http://iot.eclipse.org:1883')
  
  clientMqtt.on('connect', function () {
  	console.log('conectado ao servidor iot.eclipse');
- 	clientMqtt.subscribe('MQTTRecebeGaklaMano', function (err) {
- 		// if (!err) {
- 		// 	clientMqtt.publish('presence', 'Hello mqtt')
- 		// }
- 	})
+ 	// clientMqtt.subscribe('Harold2019TempUmi', function (err) {
+ 	// })
  })
  
  clientMqtt.on('message', function (topic, message) {
