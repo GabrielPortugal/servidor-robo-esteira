@@ -9,10 +9,10 @@ const multer = require('multer');
 global.mailer = require('nodemailer');
 
 var admin = require("firebase-admin");
-var serviceAccount = require("./mecaheartstation-firebase-adminsdk-9f0lo-cb1704ed2b");
+var serviceAccount = require("./haroldmordomovirtual-firebase-adminsdk-5jq3o-8ec6059545");
 global.Firebase = admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
-	databaseURL: "https://mecaheartstation.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://haroldmordomovirtual.firebaseio.com"
 });
 
 /**
