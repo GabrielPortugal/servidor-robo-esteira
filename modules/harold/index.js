@@ -3,9 +3,6 @@ module.exports = class module{
 	constructor() {
   }
 
-  // pegar cartão via código
-  // ARDUINO
-  // arduino tem que passar o id da maquina
   postCtrlTv(req,res) {
     console.log("*********************");
     console.log("Comando Harold CtrlTV");
@@ -24,5 +21,19 @@ module.exports = class module{
     clientMqtt.publish(topic, body.code);
 
     res.status(200).json({msg: "enviou para o Harold"});
+  }
+
+  acordar(req,res) {
+    console.log("*********************");
+    console.log("Acordar Heroku");
+    console.log('body',req.body);
+
+    let date = new Date();
+    let time = date.getTime();
+
+    res.status(200).json({
+      status:200,
+      time: time,
+      msg: "Heroku acordou"});
   }
 }

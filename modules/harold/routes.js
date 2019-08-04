@@ -6,4 +6,9 @@ module.exports = function(app){
   	var module = new Module();
   	module.postCtrlTv(req, res);
   });
+
+  app.post('/acordar', function(req, res){
+  	var module = new Module();
+  	module.postCtrlTv(req, res);
+  });
 };
