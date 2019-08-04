@@ -11,8 +11,8 @@ global.mailer = require('nodemailer');
 var admin = require("firebase-admin");
 var serviceAccount = require("./haroldmordomovirtual-firebase-adminsdk-5jq3o-8ec6059545");
 global.Firebase = admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://haroldmordomovirtual.firebaseio.com"
+	credential: admin.credential.cert(serviceAccount),
+	databaseURL: "https://haroldmordomovirtual.firebaseio.com"
 });
 
 /**
@@ -34,16 +34,28 @@ global.Firebase = admin.initializeApp({
  * Paho Node.js MQTT Client-Starting
  */
  var mqtt = require('mqtt')
-global.clientMqtt  = mqtt.connect('http://iot.eclipse.org:1883')
+ global.clientMqtt  = mqtt.connect('http://iot.eclipse.org:1883')
  
  clientMqtt.on('connect', function () {
  	console.log('conectado ao servidor iot.eclipse');
- 	// clientMqtt.subscribe('Harold2019TempUmi', function (err) {
- 	// })
+ 	clientMqtt.subscribe('Harold2019TempUmi', function (err) {
+ 	})
  })
  
  clientMqtt.on('message', function (topic, message) {
   // message is Buffer
-  console.log(topic, message.toString())
-  // clientMqtt.end()
+  if(topic === 'Harold2019TempUmi') {
+  	let json = JSON.parse(message.toString())
+  	let date = new Date()
+    let time = date.getTime()
+  	json.time = time
+  	console.log(json)
+  	Firebase.database()
+    .ref(`tempumi`)
+    .push(json,(err)=>{
+      if(err) {
+        console.log('error ao cadastar firebase/tempumi', err);
+      }
+    });
+  }
 })
