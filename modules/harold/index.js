@@ -5,7 +5,8 @@ module.exports = class module{
 
   postCtrlTv(req,res) {
     console.log("*********************");
-    console.log("Comando Harold CtrlTV");
+    console.log("Comando Harold");
+    console.log("Acordar Heroku");
     console.log('body',req.body);
 
     let date = new Date();
