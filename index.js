@@ -34,7 +34,7 @@ global.Firebase = admin.initializeApp({
  * Paho Node.js MQTT Client-Starting
  */
  var mqtt = require('mqtt')
- global.clientMqtt  = mqtt.connect('http://iot.eclipse.org:1883')
+ global.clientMqtt  = mqtt.connect('http://mqtt.eclipse.org:1883')
  
  clientMqtt.on('connect', function () {
  	console.log('conectado ao servidor iot.eclipse');
