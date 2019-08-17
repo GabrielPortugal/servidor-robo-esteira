@@ -50,12 +50,24 @@ global.Firebase = admin.initializeApp({
     let time = date.getTime()
   	json.time = time
   	console.log(json)
-  	Firebase.database()
-    .ref(`tempumi`)
-    .push(json,(err)=>{
-      if(err) {
-        console.log('error ao cadastar firebase/tempumi', err);
-      }
-    });
+
+    if(json.msg) {
+      Firebase.database()
+      .ref(`comando-tv`)
+      .push(json,(err)=>{
+        if(err) {
+          console.log('error ao cadastar firebase/comando-tv', err);
+        }
+      }); 
+    }
+    else {
+      Firebase.database()
+      .ref(`tempumi`)
+      .push(json,(err)=>{
+        if(err) {
+          console.log('error ao cadastar firebase/tempumi', err);
+        }
+      });      
+    }
   }
 })
