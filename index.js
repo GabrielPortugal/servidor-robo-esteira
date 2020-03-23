@@ -8,13 +8,19 @@ const multer = require('multer');
 
 global.mailer = require('nodemailer');
 
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 var admin = require("firebase-admin");
-var serviceAccount = require("./haroldmordomovirtual-firebase-adminsdk-5jq3o-8ec6059545");
+var serviceAccount = require("./biritas-7b300-firebase-adminsdk-iyqu4-ef6722e084");
 global.Firebase = admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
-	databaseURL: "https://haroldmordomovirtual.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://biritas-7b300.firebaseio.com"
 });
 
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 /**
  * 
  */
@@ -26,10 +32,13 @@ global.Firebase = admin.initializeApp({
  app.listen(process.env.PORT || 3000, ()=>{
  	routes(app);
  	console.log("--> logado na porta 3000");
- 	console.log("Começando o backend do Harold");
+ 	console.log("Começando o backend Estação Dionisio");
  	console.log("***********************************");
  });
 
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 /**
  * Paho Node.js MQTT Client-Starting
  */
@@ -71,3 +80,6 @@ global.Firebase = admin.initializeApp({
     }
   }
 })
+ ///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////

@@ -1,6 +1,6 @@
 var routes = function(app){
 
-	require("./modules/harold/routes.js")(app);
+	require("./modules/estacao/routes.js")(app);
 
 	// rota para molde
 	app.get("/start", (req, res)=>{
