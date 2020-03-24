@@ -47,7 +47,14 @@ clientMqtt.on('message', function (topic, message) {
   	let date = new Date()
     let time = date.getTime()
     json.time = time
+    console.log('***************************')
+    console.log('***************************')
+    console.log('chegou da Estação')
     console.log(json)
+    Firebase.database().ref(`estacao/${json.estacao}/cmd`)
+    .update({enchendo: false,qtde: 0},(err)=>{});
+    console.log('***************************')
+    console.log('***************************')
   }
 })
 ///////////////////////////////////////////////////////////
