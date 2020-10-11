@@ -5,9 +5,9 @@ module.exports = function(app){
   	var module = new Module();
   	module.acordar(req, res);
   });
-
-  app.post('/enchertaca', function(req, res){
+  
+  app.post('/balanca', function(req, res){
   	var module = new Module();
-  	module.encherTaca(req, res);
+  	module.balanca(req, res);
   });
 };
