@@ -8,7 +8,7 @@ module.exports = class module {
     console.log("Sistema Ligado");
 
     let dt = new Date();
-    let created_at = `${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()} - ${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
+    let created_at = `${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()} - ${dt.getHours()-3}:${dt.getMinutes()}:${dt.getSeconds()}`;
     let created_at_time = dt.getTime();
 
     let ref = `/teste/botija/-MGjXT_YtK0i6AG9BLjh`
