@@ -22,7 +22,7 @@ module.exports = class module {
 
     res.status(200).json({
       status: 200,
-      time: time,
+      time: created_at,
       msg: "Sistema ligado"
     });
   }
