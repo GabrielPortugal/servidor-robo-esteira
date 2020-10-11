@@ -10,4 +10,9 @@ module.exports = function(app){
   	var module = new Module();
   	module.balanca(req, res);
   });
+  
+  app.post('/sistemaligado', function(req, res){
+  	var module = new Module();
+  	module.sistemaLigado(req, res);
+  });
 };
