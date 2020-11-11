@@ -78,6 +78,10 @@ module.exports = class module {
         let novaPorcentagem = ((novoPeso * 100) / snap.botija).toFixed()
         let consumoPorcentagem = (snap.porcentagemAtual - novaPorcentagem).toFixed()
 
+        if(isNaN(novaPorcentagem)) {
+          novaPorcentagem = 0
+        }
+
         Firebase.database().ref(ref)
           .update({
             pesoAtual: novoPeso,
