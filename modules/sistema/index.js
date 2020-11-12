@@ -8,7 +8,14 @@ module.exports = class module {
     console.log("Sistema Ligado");
 
     let dt = new Date();
-    let created_at = `${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()} - ${dt.getHours()-3}:${dt.getMinutes()}:${dt.getSeconds()}`;
+
+    let hour = dt.getHours()
+    if(hour <= 0) {
+      hour = 24
+    }
+    hour = hour - 3
+
+    let created_at = `${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()} - ${hour}:${dt.getMinutes()}:${dt.getSeconds()}`;
     let created_at_time = dt.getTime();
 
     let ref = `/teste/botija/-MGjXT_YtK0i6AG9BLjh`
@@ -63,7 +70,7 @@ module.exports = class module {
 
         let tmp = (body.peso * 100) / snap.pesoAtual
         let tmpp = 100 - tmp
-        if (tmpp <= 1.5) {
+        if (tmpp <= 1) {
           res.status(200).json({
             status: 200,
             time: created_at,
