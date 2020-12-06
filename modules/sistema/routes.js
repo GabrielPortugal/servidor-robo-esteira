@@ -6,13 +6,8 @@ module.exports = function(app){
   	module.acordar(req, res);
   });
   
-  app.post('/balanca', function(req, res){
+  app.post('/receberComando', function(req, res){
   	var module = new Module();
-  	module.balanca(req, res);
-  });
-  
-  app.post('/sistemaligado', function(req, res){
-  	var module = new Module();
-  	module.sistemaLigado(req, res);
+  	module.receberComando(req, res);
   });
 };
