@@ -33,7 +33,7 @@ global.clientMqtt  = mqtt.connect('http://mqtt.internetecoisas.com.br:1883')
 
 clientMqtt.on('connect', function () {
   console.log('---------------------------------');
-  console.log('conectado ao servidor iot.eclipse');
+  console.log('conectado ao servidor MQTT');
   console.log('---------------------------------');
   clientMqtt.subscribe('d6-harold-robo-escuta', (err)=> {
     if(err) {
