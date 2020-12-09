@@ -28,12 +28,13 @@ var admin = require("firebase-admin");
 ///////////////////////////////////////////////////////////
 // Paho Node.js MQTT Client-Start
 var mqtt = require('mqtt')
-// global.clientMqtt  = mqtt.connect('http://mqtt.eclipse.org:1883')
-global.clientMqtt  = mqtt.connect('http://mqtt.internetecoisas.com.br:1883')
+// let serverMqtt = 'http://mqtt.eclipse.org:1883'
+let serverMqtt = 'http://mqtt.internetecoisas.com.br:1883'
+global.clientMqtt  = mqtt.connect(serverMqtt)
 
 clientMqtt.on('connect', function () {
   console.log('---------------------------------');
-  console.log('conectado ao servidor MQTT');
+  console.log('conectado MQTT : ' + serverMqtt);
   console.log('---------------------------------');
   clientMqtt.subscribe('d6-harold-robo-escuta', (err)=> {
     if(err) {
