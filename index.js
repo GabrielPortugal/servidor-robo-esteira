@@ -4,40 +4,18 @@ const routes = require("./routes");
 const cors = require('cors');
 const validator = require("express-validator");
 const server = require('http').Server(app);
-const multer = require('multer');
 
-//heroku logs -t --app your-app-name
-///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////
-// NODEMAILER
-global.mailer = require('nodemailer');
-
-///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////
-// FIREBASE
-var admin = require("firebase-admin");
-// var serviceAccount = require("./meugas-firebase");
-// global.Firebase = admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://meugas-app.firebaseio.com"
-// });
-///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////
 // Paho Node.js MQTT Client-Start
 var mqtt = require('mqtt')
+// servidor MQTT
 let serverMqtt = 'mqtt://broker.hivemq.com'
-// let serverMqtt = 'http://mqtt.eclipse.org:1883'
-// let serverMqtt = 'http://mqtt.internetecoisas.com.br:1883'
 global.clientMqtt  = mqtt.connect(serverMqtt)
 
 clientMqtt.on('connect', function () {
   console.log('---------------------------------');
   console.log('conectado MQTT : ' + serverMqtt);
   console.log('---------------------------------');
-  clientMqtt.subscribe('d6-harold-robo-escuta', (err)=> {
+  clientMqtt.subscribe('TOPICO_ESCUTA_MUDAR', (err)=> {
     if(err) {
       console.log('erro mqtt', err)
     }
@@ -45,17 +23,9 @@ clientMqtt.on('connect', function () {
 })
 
 clientMqtt.on('message', function (topic, message) {
-  if(topic === 'd6-harold-robo-escuta') {
+  if(topic === 'TOPICO_ESCUTA_MUDAR') {
   	let json = JSON.parse(message.toString())
-  	let date = new Date()
-    let time = date.getTime()
-    json.time = time
-    console.log('***************************')
-    console.log('***************************')
-    console.log('chegou do D6')
-    console.log(json)
-    console.log('***************************')
-    console.log('***************************')
+    console.log('escutou', json)
   }
 })
 ///////////////////////////////////////////////////////////
@@ -69,7 +39,5 @@ app.use(cors());
 
 app.listen(process.env.PORT || 3000, ()=>{
   routes(app);
-  console.log("--> logado na porta 3000");
-  console.log("Começando o backend Robo Harold (D6)");
-  console.log("***********************************");
+  console.log("--> porta 3000");
 });

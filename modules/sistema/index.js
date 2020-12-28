@@ -7,10 +7,7 @@ module.exports = class module {
 
   acordar(req, res) {
     console.log("*********************");
-    console.log("Acordar Heroku");
-    console.log("COLOCAR URL HEORKU");
-    console.log('body', req.body);
-
+    console.log("Acordar servidor");
     this.resSucesso(res, 'Heroku acordou');
   }
 
@@ -33,7 +30,7 @@ module.exports = class module {
   /////////////////////////////////
   /////////////////////////////////
   enviarComandoMusica(index) {
-    let topic = "d6-harold-robo-envia";
+    let topic = "TOPICO_ENVIA_MUDAR";
     console.log('musica', index)
     let obj = {
       musica: null
@@ -87,7 +84,7 @@ module.exports = class module {
   /////////////////////////////////
   /////////////////////////////////
   enviarComandoAndar(index) {
-    let topic = "d6-harold-robo-envia";
+    let topic = "TOPICO_ENVIA_MUDAR";
     console.log('andar', index)
     let obj = {
       comando: null
