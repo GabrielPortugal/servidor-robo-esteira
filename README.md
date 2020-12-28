@@ -3,7 +3,8 @@
 Servidor com protocolo MQTT para realizar a comunicação do Hardware com o Software 
 
 ## 🤖 Projetos complementares
-[Controle Remoto](https://github.com/GabrielPortugal/controle-remoto-robo-esteira)
+- [Controle Remoto](https://github.com/GabrielPortugal/controle-remoto-robo-esteira)
+- [Hardware](https://github.com/GabrielPortugal/nodemcu-robo-esteira)
 
 ## 🚀 Tecnologias
 - [NodeJS](https://nodejs.org/en/)
